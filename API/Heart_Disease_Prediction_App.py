@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def home():
-    return "Heart Disease Prediction App"
+    return "Stroke Disease Prediction App"
 
 @app.route('/predict',methods=['POST'])
 
