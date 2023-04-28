@@ -1,4 +1,4 @@
 flask
 numpy
 scikit-learn
-gunicorn--20.1.0
+gunicorn==20.1.0
