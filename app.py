@@ -18,14 +18,14 @@ def home():
 
 def predict():
     def predict():
-    gender = request.form['gender']
+        gender = request.form['gender']
         if gender == 'Male':
             gender_Male = 1
             gender_Female = 0
         else:
             gender_Male = 0
             gender_Female = 1
-   age = float(request.form['age'])
+        age = float(request.form['age'])
         hypertension = int(request.form['hypertension'])
         heart_disease = int(request.form['heart_disease'])
         ever_married = int(request.form['ever_married'])
