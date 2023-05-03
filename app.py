@@ -32,7 +32,7 @@ def predict():
         Residence_type = int(request.form['Residence_type'])
         avg_glucose_level = float(request.form['avg_glucose_level'])
         bmi = float(request.form['bmi'])
-            work_type = request.form['work_type']
+        work_type = request.form['work_type']
 
         if work_type == 'Never_worked':
             work_type_Never_worked = 1
