@@ -2,39 +2,41 @@ from flask import Flask, request, jsonify
 import pickle
 import numpy as np
 
-model = pickle.load(open('model1.pkl', 'rb'))
+model = pickle.load(open('Stroke.pkl','rb'))
 
 app = Flask(__name__)
-
 
 @app.route('/')
 def home():
     return "Stroke Disease Prediction App"
 
+@app.route('/predict',methods=['POST'])
 
-@app.route('/predict', methods=['POST'])
-# 'cp','thalach','slope','restecg','chol','trestbps','fbs','oldpeak'
-# [0,108,1,0,250,160,1,1.5] 0
-# [3,150,0,0,233,145,1,2.3] 1
+#'gender','age','hypertension','heart_disease','ever_married','work_type','Residence_type','avg_glucose_level','bmi','smoking_status'
+#[0,108,1,0,250,160,1,1.5] 0
+#[3,150,0,0,233,145,1,2.3] 1
 
 def predict():
-    cp = request.form.get('cp')
-    thalach = request.form.get('thalach')
-    slope = request.form.get('slope')
-    restecg = request.form.get('restecg')
-    chol = request.form.get('chol')
-    trestbps = request.form.get('trestbps')
-    fbs = request.form.get('fbs')
-    oldpeak = request.form.get('oldpeak')
+    gender= request.form.get('gender')
+    age = request.form.get('age')
+    hypertension = request.form.get('hypertension')
+    heart_disease = request.form.get('heart_disease')
+    ever_married = request.form.get('ever_married')
+    work_type = request.form.get('work_type')
+    Residence_type = request.form.get('Residence_type')
+    avg_glucose_level = request.form.get('avg_glucose_level')
+    bmi = request.form.get('bmi')
+    smoking_status = request.form.get('smoking_status')
 
-    # result = {'cp':cp,'thalach':thalach,'slope':slope,'restecg':restecg,'chol':chol,'trestbps':trestbps,'fbs':fbs,'oldpeak':oldpeak}
+    #result = {'gender':gender,'age':age,'hypertension':hypertension,'heart_disease':heart_disease,'ever_married':ever_married,'work_type':work_type,'Residence_type':Residence_type,'avg_glucose_level':avg_glucose_level,'bmi':bmi,'smoking_status':smoking_status}
 
-    input_query = np.array([[cp, thalach, slope, restecg, chol, trestbps, fbs, oldpeak]])
+    input_query = np.array([[gender,age,hypertension,heart_disease,ever_married,Residence_type,avg_glucose_level,bmi,smoking_status]])
 
     result = model.predict(input_query)[0]
 
-    return jsonify({'hearth_disease': str(result)})
+    return jsonify({'Stroke_Disease': str(result)})
 
+    
 
-if __name__ == '__main__':
+if __name__=='__main__':
     app.run(debug=True)
