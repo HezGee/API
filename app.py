@@ -17,7 +17,7 @@ def home():
 #[3,150,0,0,233,145,1,2.3] 1
 
 def predict():
-    if request.method == 'POST':
+    
         gender = request.form['gender']
         if gender == 'Male':
             gender_Male = 1
