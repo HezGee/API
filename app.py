@@ -22,15 +22,15 @@ def predict():
     hypertension = request.form.get('hypertension')
     heart_disease = request.form.get('heart_disease')
     ever_married = request.form.get('ever_married')
-    work_type = request.form.get('work_type')
     Residence_type = request.form.get('Residence_type')
     avg_glucose_level = request.form.get('avg_glucose_level')
     bmi = request.form.get('bmi')
+    work_type = request.form.get('work_type')
     smoking_status = request.form.get('smoking_status')
 
-    #result = {'gender':gender,'age':age,'hypertension':hypertension,'heart_disease':heart_disease,'ever_married':ever_married,'work_type':work_type,'Residence_type':Residence_type,'avg_glucose_level':avg_glucose_level,'bmi':bmi,'smoking_status':smoking_status}
+    #result = {'gender':gender,'age':age,'hypertension':hypertension,'heart_disease':heart_disease,'ever_married':ever_married,'Residence_type':Residence_type,'avg_glucose_level':avg_glucose_level,'bmi':bmi,'work_type':work_type,'smoking_status':smoking_status}
 
-    input_query = np.array([[gender,age,hypertension,heart_disease,ever_married,Residence_type,avg_glucose_level,bmi,smoking_status]])
+    input_query = np.array([[gender,age,hypertension,heart_disease,ever_married,Residence_type,avg_glucose_level,bmi,work_type,smoking_status]])
 
     result = model.predict(input_query)[0]
 
