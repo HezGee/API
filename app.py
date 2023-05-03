@@ -17,25 +17,22 @@ def home():
 #[3,150,0,0,233,145,1,2.3] 1
 
 def predict():
-    
-        gender = request.form['gender']
+    def predict():
+    gender = request.form['gender']
         if gender == 'Male':
             gender_Male = 1
             gender_Female = 0
         else:
             gender_Male = 0
             gender_Female = 1
-
-        age = float(request.form['age'])
+   age = float(request.form['age'])
         hypertension = int(request.form['hypertension'])
         heart_disease = int(request.form['heart_disease'])
         ever_married = int(request.form['ever_married'])
         Residence_type = int(request.form['Residence_type'])
         avg_glucose_level = float(request.form['avg_glucose_level'])
         bmi = float(request.form['bmi'])
-
-
-        work_type = request.form['work_type']
+            work_type = request.form['work_type']
 
         if work_type == 'Never_worked':
             work_type_Never_worked = 1
@@ -102,7 +99,10 @@ def predict():
 
     #result = {'gender':gender,'age':age,'hypertension':hypertension,'heart_disease':heart_disease,'ever_married':ever_married,'Residence_type':Residence_type,'avg_glucose_level':avg_glucose_level,'bmi':bmi,'work_type':work_type,'smoking_status':smoking_status}
 
-    input_query = np.array([[gender,age,hypertension,heart_disease,ever_married,Residence_type,avg_glucose_level,bmi,work_type,smoking_status]])
+    input_query = np.array([[gender_Male,age, hypertension, heart_disease, ever_married,
+                            Residence_type, avg_glucose_level, bmi,
+                            work_type_Never_worked, work_type_Private,work_type_Self_employed, work_type_children,
+                            smoking_status_formerly_smoked, smoking_status_never_smoked, smoking_status_Smokes]])
 
     result = model.predict(input_query)[0]
 
