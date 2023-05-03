@@ -99,7 +99,7 @@ def predict():
 
     #result = {'gender':gender,'age':age,'hypertension':hypertension,'heart_disease':heart_disease,'ever_married':ever_married,'Residence_type':Residence_type,'avg_glucose_level':avg_glucose_level,'bmi':bmi,'work_type':work_type,'smoking_status':smoking_status}
 
-    input_query = np.array([[gender_Male,age, hypertension, heart_disease, ever_married,
+    input_query = np.array([[gender,age, hypertension, heart_disease, ever_married,
                             Residence_type, avg_glucose_level, bmi,
                             work_type_Never_worked, work_type_Private,work_type_Self_employed, work_type_children,
                             smoking_status_formerly_smoked, smoking_status_never_smoked, smoking_status_Smokes]])
